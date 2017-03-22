@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+    db:
+        image: postgres
+        ports:
+          - "5432"
+        environment:
+          POSTGRES_PASSWORD: spring
+          POSTGRES_USER: 1234
+          POSTGRES_DB: pruebaspring
+        networks:
+          webapp:
+
+    spring:
+        build: .
+        volumes:
+            - ./spring-boot-webapp/build/libs:/app
+        command: java -jar target/demo-0.0.1-SNAPSHOT.jar
+        ports:
+            - "8080:8080"
+        depends_on:
+            - db
+        networks:
+          webapp:
+            aliases:
+              - spring
+
+networks:
+  webapp:

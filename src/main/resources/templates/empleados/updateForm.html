@@ -1,0 +1,36 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario Empleados</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    <h1>Editar Empleado</h1>
+    <form id="myform" name="myform" th:action="@{/update}" th:object="${empleadoForm}" method="POST" class="form-horizontal">
+  
+        <div class="form-group">
+            <div class="col-sm-10">
+                 <input type="hidden"  class="form-control" id="id_empleado" th:field="*{id_empleado}"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Nombre</label>
+            <div class="col-sm-10">
+                 <input type="text" class="form-control" id="nombre" name="nombre" th:field="*{nombre}" th:errorclass="error" placeholder="Nombre"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10">
+                 <input type="text" class="form-control" id="nombre" name="email" th:field="*{email}" th:errorclass="error" placeholder="Nombre"/>
+            </div>
+        </div>
+                    
+         <button type="submit" class="btn btn-primary pull-right">Registrar</button>
+    
+    </form>
+</body>
+</html>

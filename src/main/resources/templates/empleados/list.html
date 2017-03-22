@@ -1,0 +1,41 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario Empleados</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    <h1>Empleados</h1>
+    <table id="list-personas" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Identificación</th>
+                <th>Email</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="p : ${empleados}">
+                <td th:text="${p.nombre}"/>
+                <td th:text="${p.id_empleado}"/>
+                <td th:text="${p.email}"/>
+                <td> 
+                    <a th:href="@{'/show/' + ${p.id_empleado}}" title="Consultar Empleado">
+                        <i class="fa fa-info"></i>
+                    </a>
+                    &nbsp;&nbsp;
+                    <a th:href="@{'/edit/' + ${p.id_empleado}}" title="Actualizar Empleado">
+                        <i class="fa fa-pencil-square-o" style="color:green;"></i>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

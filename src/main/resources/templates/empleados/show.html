@@ -1,0 +1,24 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Información Empleado</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    <h1>Empleado</h1>
+  
+        <div class="row">
+            <label class="col-sm-3 control-label">Nombre</label>
+            <div class="col-sm-3" th:text="${empleadoShow.nombre}"></div>
+        </div>
+        <div class="row">
+            <label class="col-sm-3 control-label">Email</label>
+            <div class="col-sm-3" th:text="${empleadoShow.email}"></div>
+        </div>
+    <a th:href="@{'/edit/' + ${empleadoShow.id_empleado}}" class="btn btn-primary pull-left" role="button">Editar</a> 
+    <a th:href="@{'/empleados'}" class="btn btn-success pull-right" role="button">Lista de Empleados</a> 
+</body>
+</html>
